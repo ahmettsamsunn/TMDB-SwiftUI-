@@ -1,0 +1,15 @@
+{
+  "originHash" : "044c4529ad781377ad1d180ae06e8c9c4bd9519b01f24299f83af377fe6a59dc",
+  "pins" : [
+    {
+      "identity" : "networkinglibrary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ahmettsamsunn/NetworkingLibrary.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cf6d52816dca04334a2b4e4e7cafffa8bb8c4cb8"
+      }
+    }
+  ],
+  "version" : 3
+}
