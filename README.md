@@ -89,7 +89,8 @@ enum TMDBEndpoint: NetworkRequestable {
 
 1. Clone the repository
 2. Open TMBD.xcodeproj in Xcode
-3. Build and run the project
+3. Configure with your API key in TMDBAuthAdapter
+4. Build and run the project
 
 ## Credits
 
