@@ -97,6 +97,3 @@ enum TMDBEndpoint: NetworkRequestable {
 - Movie data provided by [The Movie Database (TMDB)](https://www.themoviedb.org/)
 - Built using NetworkingLibrary
 
-## License
-
-This project is available under the MIT license. See the LICENSE file for more info.
