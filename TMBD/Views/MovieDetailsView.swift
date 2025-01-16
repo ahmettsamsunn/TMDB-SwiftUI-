@@ -37,25 +37,55 @@ struct MovieDetailsView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     // Title and Rating
-                    HStack {
-                        Text(movie.title)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Spacer()
-                        if let rating = movie.voteAverage {
-                            HStack(spacing: 4) {
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow)
-                                Text(String(format: "%.1f", rating))
-                                    .fontWeight(.semibold)
+                    HStack(alignment: .top, spacing: 16) {
+                        // Poster Image
+                        if let posterURL = movie.posterURL {
+                            AsyncImage(url: posterURL) { phase in
+                                switch phase {
+                                case .empty:
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.2))
+                                        .frame(width: 120, height: 180)
+                                        .overlay(ProgressView())
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 120, height: 180)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                case .failure:
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.2))
+                                        .frame(width: 120, height: 180)
+                                        .overlay(
+                                            Image(systemName: "photo")
+                                                .foregroundColor(.gray)
+                                        )
+                                @unknown default:
+                                    EmptyView()
+                                }
                             }
                         }
-                    }
-                    
-                    // Release Date
-                    if let releaseDate = movie.releaseDate {
-                        Text("Release Date: \(releaseDate)")
-                            .foregroundColor(.secondary)
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(movie.title)
+                                .font(.title)
+                                .fontWeight(.bold)
+                            
+                            if let rating = movie.voteAverage {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(.yellow)
+                                    Text(String(format: "%.1f", rating))
+                                        .fontWeight(.semibold)
+                                }
+                            }
+                            
+                            if let releaseDate = movie.releaseDate {
+                                Text("Release Date: \(releaseDate)")
+                                    .foregroundColor(.secondary)
+                            }
+                        }
                     }
                     
                     // Overview

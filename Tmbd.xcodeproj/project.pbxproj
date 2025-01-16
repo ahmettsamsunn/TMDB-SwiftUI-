@@ -192,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0321E5AB2D372A6100E15F23 /* Build configuration list for PBXProject "TMBD" */;
+			buildConfigurationList = 0321E5AB2D372A6100E15F23 /* Build configuration list for PBXProject "Tmbd" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -530,7 +530,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0321E5AB2D372A6100E15F23 /* Build configuration list for PBXProject "TMBD" */ = {
+		0321E5AB2D372A6100E15F23 /* Build configuration list for PBXProject "Tmbd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0321E5D22D372A6600E15F23 /* Debug */,

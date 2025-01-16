@@ -4,7 +4,7 @@ import NetworkingLibrary
 struct TMDBAuthAdapter: RequestAdaptation {
     private let apiKey: String
     
-    init(apiKey: String = "YOUR_API_KEY_HERE") {
+    init(apiKey: String = "f2b4502f48921ca4253b0a570caa027d") {
         self.apiKey = apiKey
     }
     

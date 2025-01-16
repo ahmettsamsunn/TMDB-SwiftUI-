@@ -9,7 +9,7 @@ class MoviesViewModel: ObservableObject {
     @Published var searchResults: [Movie] = []
     @Published var isLoading = false
     @Published var error: Error?
-    @Published private(set) var selectedMovie: MovieDetails?
+    @Published private(set) var selectedMovie: Movie?
     @Published private(set) var isLoadingDetails = false
     @Published private(set) var detailsError: Error?
     
@@ -95,23 +95,7 @@ class MoviesViewModel: ObservableObject {
         }
     }
     
-    func searchMovies(query: String) {
-        guard !query.isEmpty else {
-            searchResults = []
-            return
-        }
-        
-        Task {
-            do {
-                let response = try await movieService.searchMovies(query: query)
-                searchResults = response.results
-                error = nil
-            } catch {
-                self.error = error
-                logger.error("Failed to search movies: \(error.localizedDescription)")
-            }
-        }
-    }
+
     
     func fetchMovieDetails(id: Int) {
         Task {

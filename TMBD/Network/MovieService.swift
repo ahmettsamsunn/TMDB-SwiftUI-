@@ -47,28 +47,12 @@ actor MovieService {
         }
     }
     
-    func searchMovies(query: String, page: Int = 1) async throws -> MovieResponse {
-        logger.debug("Searching movies with query: \(query), page: \(page)")
-        let result = await networking.executeRequest(
-            request: TMDBEndpoint.search(query: query, page: page),
-            responseType: MovieResponse.self
-        )
-        
-        switch result {
-        case .success(let wrapper):
-            logger.debug("Successfully fetched \(wrapper.response.results.count) search results")
-            return wrapper.response
-        case .failure(let error):
-            logger.error("Failed to search movies: \(error)")
-            throw error
-        }
-    }
     
-    func fetchMovieDetails(id: Int) async throws -> MovieDetails {
+    func fetchMovieDetails(id: Int) async throws -> Movie {
         logger.debug("Fetching details for movie: \(id)")
         let result = await networking.executeRequest(
             request: TMDBEndpoint.movieDetails(id: id),
-            responseType: MovieDetails.self
+            responseType: Movie.self
         )
         
         switch result {
